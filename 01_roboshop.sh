@@ -4,7 +4,7 @@
 # create an IAM user(Script user not real user) to interact with AWS console.
 
 # config and creds are displayed in cd .aws/ and ls -la.
-# aws s3 ls  - to check if s3 buckets are connected.
+# aws s3 ls to check if IAM user is connected.
 
 # give aws configure in respective ec2 instance, eg:shell and give access key and secret key and 
 # need to run using sh 01_roboshop.sh mongodb catalogue etc script to create multiple instances such as mongodb
