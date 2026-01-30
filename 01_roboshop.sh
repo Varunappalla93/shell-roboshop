@@ -3,17 +3,20 @@
 
 # create an IAM user(Script user not real user) to interact with AWS console.
 
-# give aws configure in ec2 instance and give access key and secret key to run roboshop scripts
-# config and creds are displayed in cd .aws/ and ls -la
+# give aws configure in respective ec2 instance, eg:shell and give access key and secret key and 
+# need to run using sh 01_roboshop.sh mongodb catalogue etc script to create multiple instances such as mongodb
+# catalogue, cart, redis etc and respective multiple route 53 A records.
 
-# aws s3 ls  - to check if s3 buckets are connected
+# config and creds are displayed in cd .aws/ and ls -la.
+
+# aws s3 ls  - to check if s3 buckets are connected.
 
 SG_ID="sg-027080a66d5d9f364"
 AMI_ID="ami-0220d79f3f480ecf5"
 ZONE_ID="Z07749522UFFTP3DDWVZQ"
 DOMAIN_NAME="vardevops.online"
 
-for instance in $@
+for instance in $@   # sh 01_roboshop.sh mongodb catalogue etc.
 do
     INSTANCE_ID=$( aws ec2 run-instances \
     --image-id $AMI_ID \
@@ -38,7 +41,7 @@ do
             --query 'Reservations[].Instances[].PrivateIpAddress' \
             --output text
         )
-        RECORD_NAME="$instance.$DOMAIN_NAME" # mongodb.vardevops.online
+        RECORD_NAME="$instance.$DOMAIN_NAME" # eg: mongodb.vardevops.online
     fi
     echo "IP Address is $IP"
 
