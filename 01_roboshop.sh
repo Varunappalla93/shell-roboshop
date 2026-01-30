@@ -1,5 +1,4 @@
 # Day 17:
-
 #!/bin/bash
 
 # create an IAM user(Script user not real user) to interact with AWS console.
