@@ -4,7 +4,7 @@ USERID=$(id -u)
 SCRIPT_DIR=$PWD
 LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
-MONGODB_HOST=vardevops.online
+MONGODB_HOST=mongodb.vardevops.online
 # colors
 NORMAL='\e[0m'
 RED='\e[31m'
@@ -40,11 +40,12 @@ dnf install nodejs -y &>>$LOGS_FILE
 VALIDATE $? "installing node js"
 
 id roboshop &>>$LOGS_FILE
-if [$? -ne 0 ]; then
+if [ $? -ne 0 ]; then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOGS_FILE
     VALIDATE $? "Creating system user"
 else
     echo -e "Roboshop user exists, hence $RED skipping $NORMAL"
+fi
 
 mkdir -p /app 
 VALIDATE $? "Creating directory"
