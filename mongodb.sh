@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
-LOGS_FILE="${LOGS_FOLDER}/$0.log"
+LOGS_FILE="$LOGS_FOLDER/$0.log"
 # colors
 NORMAL='\e[0m'
 RED='\e[31m'
