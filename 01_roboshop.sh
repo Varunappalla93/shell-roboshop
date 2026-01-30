@@ -3,13 +3,12 @@
 
 # create an IAM user(Script user not real user) to interact with AWS console.
 
+# config and creds are displayed in cd .aws/ and ls -la.
+# aws s3 ls  - to check if s3 buckets are connected.
+
 # give aws configure in respective ec2 instance, eg:shell and give access key and secret key and 
 # need to run using sh 01_roboshop.sh mongodb catalogue etc script to create multiple instances such as mongodb
 # catalogue, cart, redis etc and respective multiple route 53 A records.
-
-# config and creds are displayed in cd .aws/ and ls -la.
-
-# aws s3 ls  - to check if s3 buckets are connected.
 
 SG_ID="sg-027080a66d5d9f364"
 AMI_ID="ami-0220d79f3f480ecf5"
