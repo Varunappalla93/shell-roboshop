@@ -20,23 +20,23 @@ mkdir -p $LOGS_FOLDER
 VALIDATE()
 {
 if [ $1 -ne 0 ]; then
-    echo -e "Installing $2... $RED failed $NORMAL" | tee -a $LOGS_FILE
+    echo -e "$2... $RED failed $NORMAL" | tee -a $LOGS_FILE
     exit 1
 else
-    echo -e "Installing $2... $GREEN success $NORMAL" | tee -a $LOGS_FILE
+    echo -e "$2... $GREEN success $NORMAL" | tee -a $LOGS_FILE
 fi
 }
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Copying mongo repo"
 
-dnf install mongodb-org -y 
+dnf install mongodb-org -y &>>$LOGS_FILE
 VALIDATE $? "Installing mongodb server"
 
-systemctl enable mongod 
+systemctl enable mongod &>>$LOGS_FILE
 VALIDATE $? "Enable mongodb"
 
-systemctl start mongod 
+systemctl start mongod &>>$LOGS_FILE
 VALIDATE $? "Start mongodb"
 
 
