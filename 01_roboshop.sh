@@ -4,7 +4,7 @@
 
 # create an IAM user(Script user not real user) to interact with AWS console.
 
-# give aws configure in Ec2 instance and give access key and secret key to run roboshop scripts
+# give aws configure in ec2 instance and give access key and secret key to run roboshop scripts
 # config and creds are displayed in cd .aws/ and ls -la
 
 # aws s3 ls  - to check if s3 buckets are connected
