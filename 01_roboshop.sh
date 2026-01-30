@@ -41,5 +41,5 @@ do
         )
         RECORD_NAME="$instance.$DOMAIN_NAME" # mongodb.vardevops.online
     fi
-    echo "IP Address is: $IP"
+    echo "IP Address  $IP"
 done
