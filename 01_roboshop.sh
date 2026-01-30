@@ -4,7 +4,7 @@
 
 # create an IAM user(Script user not real user) to interact with AWS console.
 
-# give aws configure in Ec2 instance and give access key and secret key
+# give aws configure in Ec2 instance and give access key and secret key to run roboshop scripts
 # config and creds are displayed in cd .aws/ and ls -la
 
 # aws s3 ls  - to check if s3 buckets are connected
@@ -42,4 +42,29 @@ do
         RECORD_NAME="$instance.$DOMAIN_NAME" # mongodb.vardevops.online
     fi
     echo "IP Address is $IP"
+
+    aws route53 change-resource-record-sets \
+    --hosted-zone-id $ZONE_ID \
+    --change-batch '
+    {
+        "Comment": "Updating record",
+        "Changes": [
+            {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "'$RECORD_NAME'",
+                "Type": "A",
+                "TTL": 1,
+                "ResourceRecords": [
+                {
+                    "Value": "'$IP'"
+                }
+                ]
+            }
+            }
+        ]
+    }
+    '
+
+    echo "Record is updated for $instance"
 done
