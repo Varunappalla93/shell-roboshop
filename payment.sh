@@ -13,7 +13,6 @@ BLUE='\e[33m'
 
 # SCRIPT_DIR=$PWD # not recommended.
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)  # Where the script file lives
-MYSQL_HOST=mysql.vardevops.online
 
 if [ $USERID -ne 0 ]; then
     echo -e "$RED Pls run this script with root user access $NORMAL"
