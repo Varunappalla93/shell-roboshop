@@ -1,7 +1,7 @@
 # Day 17:
 #!/bin/bash
 USERID=$(id -u)
-SCRIPT_DIR=$PWD
+SCRIPT_DIR=$PWD # becomes the directory from which you RUN the script, and NOT the directory where the script file is stored.
 LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 MONGODB_HOST=mongodb.vardevops.online
