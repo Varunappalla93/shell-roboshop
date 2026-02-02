@@ -75,15 +75,22 @@ VALIDATE $? "Created systemctl service"
 dnf install mysql -y  &>>$LOGS_FILE
 VALIDATE $? "Installing MySQL"
 
-mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e 'use cities'
+mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e "status" &>>$LOGS_FILE
 if [ $? -ne 0 ]; then
+    echo -e "$RED Error: Cannot connect to MySQL. Check credentials/permissions. $NORMAL"
+    exit 1
+fi
 
+# Check if DB exists
+mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e 'use cities' &>>$LOGS_FILE
+if [ $? -ne 0 ]; then
+    echo "Loading Schema..."
     mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOGS_FILE
     mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$LOGS_FILE
     mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$LOGS_FILE
-    VALIDATE $? "Loaded data into MySQL"
+    VALIDATE $? "Loading MySQL Data"
 else
-    echo -e "data is already loaded ... $BLUE SKIPPING $NORMAL"
+    echo -e "Data already exists... $BLUE SKIPPING $NORMAL"
 fi
 
 systemctl enable shipping &>>$LOGS_FILE
