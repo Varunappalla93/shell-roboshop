@@ -32,8 +32,8 @@ dnf install mysql-server -y &>>$LOGS_FILE
 VALIDATE $? "Install MySQL server"
 
 systemctl enable mysqld &>>$LOGS_FILE
-systemctl restart mysqld  
-VALIDATE $? "Enable and restart mysql"
+systemctl start mysqld  
+VALIDATE $? "Enable and start mysql"
 
 # get the password from user
 # read -s -p "Enter MySQL root password:" MYSQL_ROOT_PASS
