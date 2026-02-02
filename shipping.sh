@@ -87,5 +87,5 @@ else
 fi
 
 systemctl enable shipping &>>$LOGS_FILE
-systemctl start shipping
-VALIDATE $? "Enabled and started shipping"
+systemctl restart shipping
+VALIDATE $? "Enabled and restarted shipping"
