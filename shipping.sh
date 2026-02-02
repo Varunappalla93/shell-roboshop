@@ -11,8 +11,7 @@ RED='\e[31m'
 GREEN='\e[32m'
 BLUE='\e[33m'
 
-# SCRIPT_DIR=$PWD # not recommended.
-SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)  # Where the script file lives
+SCRIPT_DIR=$PWD
 MYSQL_HOST=mysql.vardevops.online
 
 
