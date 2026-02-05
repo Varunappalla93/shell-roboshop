@@ -1,14 +1,22 @@
 # Day 17:
 #!/bin/bash
 
-# create an IAM user(Script user not real user) to interact with AWS console.
+# create an IAM user(Script user not real user) in AWS and we get access key and secrey key to interact with AWS console. 
+# IAM user is used to execute shell commands.
+
+# give aws configure in respective EC2 instance, eg:shell and give its access key, secret key and EC2 instance region to connect 
+# that IAM user to EC2 instance. 
 
 # config and creds are displayed in cd .aws/ and ls -la.
-# aws s3 ls to check if IAM user is connected.
 
-# give aws configure in respective ec2 instance, eg:shell and give access key and secret key and 
-# need to run using sh 01_roboshop.sh mongodb catalogue etc script to create multiple instances such as mongodb
-# catalogue, cart, redis etc and respective multiple route 53 A records.
+# give aws s3 ls to check if that IAM user is connected to EC2 instance.
+
+# we need to run using sh 01_roboshop.sh mongodb catalogue etc, script to create multiple EC2 instances such as mongodb
+# catalogue, cart, redis etc and its respective multiple route 53 A records.
+
+# we push the shell scripts code which we created in our local machine, for eg, in VS code to github specific repo, 
+# and from github, we clone the repo if its first time / pull the latest code the its specific EC2 instances, eg: mongodb EC2 instance
+# and execute the specific script, eg: sudo sh mongodb.sh.
 
 SG_ID="sg-027080a66d5d9f364"
 AMI_ID="ami-0220d79f3f480ecf5"
