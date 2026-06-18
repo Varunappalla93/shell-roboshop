@@ -3,6 +3,7 @@
 SG_ID="sg-0f1fe41b89590d9f1"
 AMI_ID="ami-0220d79f3f480ecf5"
 DOMAIN_NAME="vardevops.online"
+ZONE_ID="Z0250438Z6CI85HTN7SE"
 
 for instance in "$@"
 do
@@ -31,4 +32,27 @@ do
          RECORD_NAME="$instance.$DOMAIN_NAME" # mongodb.vardevops.online
     fi
         echo "IP Address: $IP"
+
+    aws route53 change-resource-record-sets \
+    --hosted-zone-id $ZONE_ID \
+    --change-batch '
+    {
+        "Comment": "Updating record",
+        "Changes": [
+            {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "'$RECORD_NAME'",
+                "Type": "A",
+                "TTL": 1,
+                "ResourceRecords": [
+                {
+                    "Value": "'$IP'"
+                }
+                ]
+            }
+            }
+        ]
+    }'
+        echo "record updated for $instance"
 done
