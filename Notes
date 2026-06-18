@@ -20,8 +20,8 @@ sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurren
 sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
 
 
-Eg: sh roboshop.sh mongodb catalogue - This is to create ec2 instances for mongodb catalogue and others and update route 53 records for those instances
-from roboshop.sh file
+Eg: sh roboshop.sh mongodb catalogue - This is to create ec2 instances for mongodb, catalogue and other instances
+and update route 53 records for all those instances from roboshop.sh file.
 
 Eg: Login to catalogue server and run sudo sh catalogue.sh to execute catalogue.sh script.
 Same for other instances such as mongodb, redis etc.
