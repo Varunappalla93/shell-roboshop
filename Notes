@@ -17,3 +17,5 @@ sed -i '2d' users - deletes 2nd line
 sed '/sbin/d' users - deletes sbin included lines
 sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurrences
 sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
+
+tail -50 /var/log/shell-roboshop/mongodb.sh.log
