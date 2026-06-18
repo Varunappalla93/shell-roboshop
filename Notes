@@ -6,3 +6,14 @@ enter "aws configure" in EC2 server and give access key and secret key to connec
 ls -la and cd .aws and ls -la to check our config and credentials.
 
 aws s3 ls - to verify if we are connected to aws cli successfully.
+
+sed editor:
+sed '1a Hi' users - adds Hi after first line temporarily
+sed -i '1a Hi' users - adds Hi after first line temporarily
+
+sed '1i Hi' users - adds Hi before first line temporarily
+sed -i '2d' users - deletes 2nd line
+
+sed '/sbin/d' users - deletes sbin included lines
+sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurrences
+sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
