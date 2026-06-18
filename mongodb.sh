@@ -38,7 +38,7 @@ VALIDATE $? "start mongodb"
 
 
 # we need to use sed editor for scripts to make changes to confi files.
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 VALIDATE $? "Allowing remote connections"
 
 systemctl restart mongod
