@@ -9,16 +9,15 @@ aws s3 ls - to verify if we are connected to aws cli successfully.
 
 sed editor:
 sed '1a Hi' users - adds Hi after first line temporarily
-sed -i '1a Hi' users - adds Hi after first line temporarily
+sed -i '1a Hi' users - adds Hi after first line permanently
 
 sed '1i Hi' users - adds Hi before first line temporarily
-sed -i '2d' users - deletes 2nd line
+
+sed -i '2d' users - deletes 2nd line permanently
 
 sed '/sbin/d' users - deletes sbin included lines
 sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurrences
 sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
-
-tail -50 /var/log/shell-roboshop/mongodb.sh.log
 
 
 Eg: sh roboshop.sh mongodb catalogue - This is to create ec2 instances for mongodb catalogue and others and update route 53 records for those instances
@@ -28,3 +27,6 @@ Eg: Login to catalogue server and run sudo sh catalogue.sh to execute catalogue.
 Same for other instances such as mongodb, redis etc.
 
 curl http://localhost:8080/health - to check health of catalogue server, it should be {"app":"OK","mongo":false}
+
+tail -50 /var/log/shell-roboshop/mongodb.sh.log - to check logs - $LOGS_FILE of mongodb.sh script file.
+
