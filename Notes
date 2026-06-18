@@ -1,6 +1,6 @@
 aws cli - Authenticate with AWS and connect with aws cli.
 
-we use IAM to create user swith Adminstrator access and create access key for Authentication to connect to EC2 instance.
+we use IAM to create user swith Adminstrator access and create access key for Authentication to connect to EC2 instance for running our scripts.
 
 enter "aws configure" in EC2 server and give access key and secret key to connect to aws cli.
 ls -la and cd .aws and ls -la to check our config and credentials.
@@ -19,7 +19,7 @@ sed '/sbin/d' users - deletes sbin included lines
 sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurrences
 sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
 
-
+To execute project scripts:
 Eg: sh roboshop.sh mongodb catalogue - This is to create ec2 instances for mongodb, catalogue and other instances
 and update route 53 records for all those instances from roboshop.sh file.
 
