@@ -21,6 +21,10 @@ sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurren
 tail -50 /var/log/shell-roboshop/mongodb.sh.log
 
 
-sh roboshop.sh catalogue - from roboshop.sh file
+Eg: sh roboshop.sh mongodb catalogue - This is to create ec2 instances for mongodb catalogue and others and update route 53 records for those instances
+from roboshop.sh file
 
-sudo sh catalogue.sh
+Eg: Login to catalogue server and run sudo sh catalogue.sh to execute catalogue.sh script.
+Same for other instances such as mongodb, redis etc.
+
+curl http://localhost:8080/health - to check health of catalogue server, it should be {"app":"OK","mongo":false}
