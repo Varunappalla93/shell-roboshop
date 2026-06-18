@@ -1,0 +1,8 @@
+aws cli - Authenticate with AWS and connect with aws cli.
+
+we use IAM to create user swith Adminstrator access and create access key for Authentication to connect to EC2 instance.
+
+enter "aws configure" in EC2 server and give access key and secret key to connect to aws cli.
+ls -la and cd .aws and ls -la to check our config and credentials.
+
+aws s3 ls - to check if we are connected to aws cli.
