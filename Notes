@@ -19,3 +19,8 @@ sed '2s/sbin/SBIN/g' users - replaces sbin with SBIN in 2nd line in all occurren
 sed 's/sbin/SBIN/g' users - replaces sbin with SBIN in all lines in all occurrences
 
 tail -50 /var/log/shell-roboshop/mongodb.sh.log
+
+
+sh roboshop.sh catalogue - from roboshop.sh file
+
+sudo sh catalogue.sh
