@@ -7,7 +7,7 @@ ls -la and cd .aws and ls -la to check our config and credentials.
 
 aws s3 ls - to verify if we are connected to aws cli successfully.
 
-sed editor:
+sed editor to make changes to conf files:
 sed '1a Hi' users - adds Hi after first line temporarily
 sed -i '1a Hi' users - adds Hi after first line permanently
 
