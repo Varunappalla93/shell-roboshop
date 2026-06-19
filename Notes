@@ -30,3 +30,9 @@ curl http://localhost:8080/health - to check health of catalogue server, it shou
 
 tail -50 /var/log/shell-roboshop/mongodb.sh.log - to check logs - $LOGS_FILE of mongodb.sh script file.
 
+
+To call one script into another script  - Eg: give sh script-2.sh in script 1 file, but each script will have different process id,
+hence cannot access script 1 variables.
+
+Therefore  better give source ./script-2.sh in script 1 file, so now both scripts will have same process id and now script-2 to access script 1 variables,
+and to check output we can execute script-1 file.
