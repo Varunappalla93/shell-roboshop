@@ -1,4 +1,4 @@
-aws cli - Authenticate with AWS and connect with aws cli.
+aws configure - Authenticate with AWS and connect with aws cli.
 
 we use IAM to create user swith Adminstrator access and create access key for Authentication to connect to EC2 instance for running our scripts.
 
